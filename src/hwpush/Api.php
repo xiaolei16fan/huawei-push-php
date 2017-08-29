@@ -27,11 +27,11 @@ class Api
     public function __construct($clientId, $clientSecret)
     {
         $token = new Token($clientId, $clientSecret);
-        $this->requestData = [
+        $this->requestData = array(
             'nsp_ts' => strval(time()),
             'nsp_fmt' => 'JSON',
             'access_token' => $token->requestAccess(),
-        ];
+        );
     }
 
     /**
