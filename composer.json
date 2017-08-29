@@ -1,0 +1,25 @@
+{
+    "name":"kaelwu/huawei-push",
+    "description":"php huawei push",
+    "license":"MIT",
+    "keywords":["huawei push"],
+    "authors":
+ 	[
+		{
+			"name":"keal",
+			"email":"wuqihan25@gmail.com"
+        }
+    ],
+	"require":
+	{
+        "php":">=5.3.0",
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload":
+	{
+	    "psr-4":
+		{
+		     "hwpush\\":"src/hwpush"
+        }
+    }
+}
