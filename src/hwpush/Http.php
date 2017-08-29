@@ -131,7 +131,7 @@ class Http
                     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
                 }
             }
-        }echo http_build_query($data);echo "\n";
+        }
 
         if (null !== $userpwd) {
             curl_setopt($curl, CURLOPT_USERPWD, $userpwd);
