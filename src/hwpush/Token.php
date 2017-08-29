@@ -29,11 +29,11 @@ class Token
     public function requestAccess()
     {
         // todo add token expire;
-        $postData = [
+        $postData = array(
             'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
             'grant_type' => 'client_credentials'
-        ];
+        );
         $res = Http::post(Constant::ACCESS_TOKEN_API, $postData);
         $tokenInfo = json_decode($res, true);
         $token = $tokenInfo['access_token'];
