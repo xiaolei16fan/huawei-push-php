@@ -1,5 +1,5 @@
 {
-  "name": "kaelwu/huawei-push",
+  "name": "xiaolei16fan/huawei-push",
   "description": "php huawei push",
   "license": "MIT",
   "keywords": [
@@ -7,8 +7,8 @@
   ],
   "authors": [
     {
-      "name": "keal",
-      "email": "wuqihan25@gmail.com"
+      "name": "Larry Chen",
+      "email": "ranwuer@gmail.com"
     }
   ],
   "require": {
