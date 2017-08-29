@@ -73,8 +73,7 @@ class Api
      */
     public function SendNotice(NoticeBody $noticeBody)
     {
-        $info = json_decode(json_encode($noticeBody, JSON_UNESCAPED_UNICODE), true);
-        $this->requestData = array_merge($this->requestData, $info);
+        $this->requestData = array_merge($this->requestData, (array)$noticeBody);
         $this->requestData['nsp_svc'] = Constant::NOTIFICATION_SEND_URL;
         $res = Http::post(Constant::BASE_API, $this->requestData);
         return $res;
