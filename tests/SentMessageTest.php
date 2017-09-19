@@ -31,9 +31,12 @@ class SentMessageTest extends TestCase
         $this->assertEquals($res['resultcode'], 0);
     }
 
+    /**
+     * 此接口暂不支持通知栏消息查询
+     */
     public function testQueryMsg()
     {
-        $requestId = '1502677570381217448';
+        $requestId = '1504252345422432760820000000';
         $token = '0864264020863996300000649100CN01';
         $queryMsgBody = new QueryMsgBody($requestId, $token);
 
@@ -44,35 +47,13 @@ class SentMessageTest extends TestCase
 
     public function testSendNotice()
     {
-        // $android = new AndroidBody();
-        // $android->notification_title = 'hello world';
-        // $android->notification_content = 'hello world content';
-        // $android->notification_status_icon = '';
-        // $android->content_file_url = '';
-        // $android->doings = 2;
-        // $android->smsContent = '';
-        // $android->mmsUrl = '';
-        // $android->url = '';
-        // $android->intent = 'intent://push16fan/notification?';
-        // $android->extra = '';
-
         $message = new NoticeBody();
-        $message->push_type = 2;
-        // $message->tokens = "";
-        // $message->tags = "";
-        // $message->exclude_tags = "";
+        $message->push_type = 1;
+        $message->tokens = "0862788034327111300000649100CN01";
         $message->android = '{"notification_title":"文章1","notification_content":"文章内容1","doings":2,"intent":"intent://push16fan/notification?title=测试标题&content=测试内容&extraMsg=测试额外数据&keyValue={exttype:article,pushid:708309}&#Intent;scheme=app16fan;launchFlags=0x10000000;end"}';
-        // $message->send_time = strval(time());
-        // $message->expire_time = strval(time() + 86400);
-        // $message->device_type = 1;
-        // $message->message = '';
-        // $message->allow_periods = '';
-        // $message->target_user_type = '';
 
         $hwpush = new Api($this->appId, $this->appSecret);
-        $res = $hwpush->SendNotice($message);
-        var_dump($res);exit;
-        // $res = json_decode($hwpush->SendNotice($message), true);
-        // $this->assertEquals($res['resultcode'], 0);
+        $res = json_decode($hwpush->SendNotice($message), true);
+        $this->assertEquals($res['resultcode'], 0);
     }
 }
